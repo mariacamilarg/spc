@@ -9,9 +9,13 @@ muestreo = np.array(muestreo)
 p = np.mean(muestreo)
 s = np.std(muestreo)
 m = np.median(muestreo)
+cl = (p-30)/(3*s)
+cu = (38-p)/(3*s)
+coef = np.min([cl,cu])
 
 print(p,s,m)
 print(np.min(muestreo), np.max(muestreo))
+print(cl, cu, coef)
 
 plt.Figure()
 plt.hist(muestreo, bins=15, alpha=0.7, color='c')
